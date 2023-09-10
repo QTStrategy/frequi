@@ -3,6 +3,7 @@ import { ClosedTrade, Trade } from './trades';
 
 export interface BacktestPayload {
   strategy: string;
+  pairtlist: string;
   timerange: string;
   timeframe?: string;
   timeframe_detail?: string;

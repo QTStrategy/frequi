@@ -112,6 +112,18 @@
           >
             <b-form-group
               label-cols-sm="5"
+              label="pairlist"
+              label-align-sm="right"
+              label-for="backtest-pairlist"
+            >
+              <b-form-input
+                id="backtest-pairlist"
+                v-model="backParitlist"
+                type="string"
+              ></b-form-input>
+            </b-form-group>
+            <b-form-group
+              label-cols-sm="5"
               label="Timeframe:"
               label-align-sm="right"
               label-for="timeframe-select"
@@ -371,6 +383,7 @@ const allowCache = ref(true);
 const maxOpenTrades = ref('');
 const stakeAmount = ref('');
 const startingCapital = ref('');
+const backParitlist = ref('');
 const btFormMode = ref('run');
 const pollInterval = ref<number | null>(null);
 
@@ -394,6 +407,7 @@ watch(
 const clickBacktest = () => {
   const btPayload: BacktestPayload = {
     strategy: strategy.value,
+    pairtlist: backParitlist.value,
     timerange: timerange.value,
     enable_protections: enableProtections.value,
   };
